@@ -1,4 +1,202 @@
-```xml
-<call:web_code_canvas generate_web_app="{&quot;language&quot;:&quot;HTML&quot;,&quot;query&quot;:&quot;Create a single-file index.html personal portfolio website for Kristen Zhu based strictly on the user specifications.\n\nKey Specs:\n- Targeted Reader: Hiring manager at an Alberta tech company.\n- First Screen: Full Name (Kristen Zhu), One-liner (\&quot;Use algorithms to solve real-world problems\&quot;), Short \&quot;Now\&quot; line (\&quot;Working on <mark>[what you are working on this month]</mark>\&quot;), and a clear Primary Button (<mark>[what you want next]</mark>) linked to mailto:kristenjia.55@gmail.com.\n- SEO / Social Tags: <title>Kristen Zhu · Algorithm & Software Developer</title>, meta description, Open Graph tags (og:title, og:description, og:type, og:url), canonical link.\n- Style & Typography: Bold, clean, confident modern layout. Clean CSS variables, single accent color (e.g. electric indigo/teal `#4F46E5` or vibrant sapphire `#2563EB` with slate/charcoal dark accents). Google Fonts (e.g., 'Inter' / 'Plus Jakarta Sans' / 'Space Grotesk'). Fully responsive, mobile-optimized, fast single file with embedded CSS.\n- Featured Section (2-3 items with structure: Problem, Decision & Why, Result, Link):\n  * Include structured placeholders formatted cleanly with yellow `<mark>` tags for missing items.\n  * Item 1: Typhoon Track & Climate Data Analysis (Problem: Visualizing 75 years of tropical storm track data; Decision: Processed IBTrACS dataset with Python to track Hainan typhoon paths; Result: Clean spatial-temporal visualization repository).\n  * Item 2: Community & Environmental Impact Analysis (Problem: Analyzing cattle grazing impacts on Alberta wildlife; Decision: Field data analysis and data-driven ecological assessment; Result: Actionable insights for park management).\n  * Include `<mark>` yellow highlighted placeholders where details/links are missing.\n- Work Section: Newest first, with comment `<!-- ADD NEW WORK HERE: copy one item, paste it at the top, edit it -->`. Simple list format with dates, concise summary, links (if present, else omit links).\n- About Section (Max 3 sentences): Built on CS & Math background, applying mathematical rigor and algorithmic analysis to solve real-world problems (like day home care optimization and local technical challenges in Alberta).\n- Contact Links: Email (`mailto:kristenjia.55@gmail.com`), LinkedIn (`<mark>[LinkedIn URL]</mark>` with `rel=\&quot;me\&quot;`), GitHub (`<mark>github.com/[GitHub username]</mark>` with `rel=\&quot;me\&quot;`).\n- Copy Constraints: NO banned words (\&quot;passionate\&quot;, \&quot;driven\&quot;, \&quot;results-oriented\&quot;, \&quot;leverage\&quot;, \&quot;synergy\&quot;, \&quot;innovative\&quot;). Plain, specific language.\n- Output strictly valid HTML/CSS in single index.html structure.&quot;}"/>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kristen Zhu · Computing Science and Math student</title>
+<meta name="description" content="I use algorithms to solve real-world problems.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Kristen Zhu · Computing Science and Math student">
+<meta property="og:description" content="I use algorithms to solve real-world problems.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Kristen Zhu · Computing Science and Math student">
+<meta name="twitter:description" content="I use algorithms to solve real-world problems.">
+<!-- When you have your site link, add: <link rel="canonical" href="YOUR-SITE-LINK"> and <meta property="og:url" content="YOUR-SITE-LINK"> -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0f0f12;
+    --panel: #18181d;
+    --text: #f4f2ee;
+    --muted: #a9a7a2;
+    --line: #2c2c33;
+    --accent: #ff5a36;
+    --head: "Space Grotesk", "Helvetica Neue", Arial, sans-serif;
+    --body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--body);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    -webkit-text-size-adjust: 100%;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 1.25rem; }
+  a { color: var(--text); text-decoration-color: var(--accent); text-underline-offset: 3px; text-decoration-thickness: 2px; }
+  a:hover { color: var(--accent); }
+  mark { background: #ffe600; color: #111; padding: 0.05em 0.3em; border-radius: 3px; font-weight: 500; }
+  h1, h2, h3 { font-family: var(--head); line-height: 1.1; margin: 0; }
 
-```
+  /* Top bar */
+  header.top { padding: 1.25rem 0; border-bottom: 1px solid var(--line); }
+  header.top .wrap { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; }
+  .brand { font-family: var(--head); font-weight: 700; text-decoration: none; }
+  nav { display: flex; gap: 1.25rem; font-size: 0.95rem; }
+  nav a { color: var(--muted); text-decoration: none; }
+  nav a:hover { color: var(--accent); }
+
+  /* Hero */
+  .hero { padding: 4rem 0 2.5rem; }
+  .hero h1 { font-size: clamp(2.8rem, 12vw, 5.5rem); font-weight: 700; letter-spacing: -0.03em; }
+  .oneliner { font-family: var(--head); font-size: clamp(1.4rem, 5vw, 2.1rem); font-weight: 500; margin: 1.25rem 0 0; max-width: 20ch; }
+  .oneliner em { font-style: normal; color: var(--accent); }
+  .cta { margin-top: 2rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+  .btn {
+    display: inline-block; background: var(--accent); color: #111; font-family: var(--head);
+    font-weight: 700; font-size: 1.1rem; padding: 0.9rem 1.6rem; border-radius: 6px; text-decoration: none;
+  }
+  .btn:hover { background: var(--text); color: #111; }
+  .cta small { font-size: 0.9rem; color: var(--muted); }
+
+  .now { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 1rem 0; margin-top: 1rem; }
+  .now p { margin: 0; }
+  .now strong { font-family: var(--head); color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.85rem; margin-right: 0.6rem; }
+
+  /* Sections */
+  section { padding: 3.5rem 0 0; }
+  section h2 { font-size: clamp(1.8rem, 6vw, 2.4rem); font-weight: 700; letter-spacing: -0.02em; margin-bottom: 1.5rem; }
+  section h2::after { content: ""; display: block; width: 3rem; height: 4px; background: var(--accent); margin-top: 0.6rem; }
+
+  /* Featured */
+  .featured { display: grid; gap: 1.25rem; }
+  .card { background: var(--panel); border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 8px; padding: 1.5rem; }
+  .card h3 { font-size: 1.4rem; margin-bottom: 1rem; }
+  .card dl { margin: 0; display: grid; gap: 0.9rem; }
+  .card dt { font-family: var(--head); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); }
+  .card dd { margin: 0.15rem 0 0; }
+
+  /* Work */
+  .work { list-style: none; margin: 0; padding: 0; }
+  .work li { display: grid; grid-template-columns: 7.5rem 1fr; gap: 0.25rem 1rem; padding: 0.9rem 0; border-bottom: 1px solid var(--line); }
+  .work time { color: var(--muted); font-size: 0.95rem; }
+  @media (max-width: 520px) { .work li { grid-template-columns: 1fr; } }
+
+  /* About + Contact */
+  .about p { margin: 0; max-width: 60ch; }
+  .contact { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.6rem; }
+  .contact span { display: inline-block; min-width: 5.5rem; color: var(--muted); }
+
+  footer { margin-top: 4rem; padding: 1.5rem 0 3rem; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.9rem; }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top">Kristen Zhu</a>
+    <nav aria-label="Main">
+      <a href="#featured">Featured</a>
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap">
+
+    <div class="hero">
+      <h1>Kristen Zhu</h1>
+      <p class="oneliner">I use <em>algorithms</em> to solve real-world problems.</p>
+      <div class="cta">
+        <a class="btn" href="mailto:kristenjia.55@gmail.com">Email me</a>
+        <small><mark>[What should they email you about? e.g. a role, a chat about a project]</mark></small>
+      </div>
+    </div>
+
+    <div class="now">
+      <p><strong>Now</strong> <mark>[What are you working on this month?]</mark></p>
+    </div>
+
+    <!-- FEATURED: your 2-3 strongest items. Each needs a problem, a decision and why, a result, and a link.
+         Answer each yellow question, then delete the yellow mark.
+         To add a link, put <dt>Link</dt><dd><a href="YOUR-LINK">Link text</a></dd> at the end of the <dl>.
+         If you have no link, leave it out. -->
+    <section id="featured">
+      <h2>Featured</h2>
+      <div class="featured">
+
+        <article class="card">
+          <h3><mark>[What is this project called?]</mark></h3>
+          <dl>
+            <div><dt>Problem</dt><dd><mark>[What problem were you solving, and for whom?]</mark></dd></div>
+            <div><dt>Decision and why</dt><dd><mark>[What did you decide here, and why that over the alternatives?]</mark></dd></div>
+            <div><dt>Result</dt><dd><mark>[What happened? Give a real number or outcome if you have one.]</mark></dd></div>
+          </dl>
+        </article>
+
+        <article class="card">
+          <h3><mark>[What is this project called?]</mark></h3>
+          <dl>
+            <div><dt>Problem</dt><dd><mark>[What problem were you solving, and for whom?]</mark></dd></div>
+            <div><dt>Decision and why</dt><dd><mark>[What did you decide here, and why that over the alternatives?]</mark></dd></div>
+            <div><dt>Result</dt><dd><mark>[What happened? Give a real number or outcome if you have one.]</mark></dd></div>
+          </dl>
+        </article>
+
+        <article class="card">
+          <h3><mark>[What is this project called? Delete this card if you only have two.]</mark></h3>
+          <dl>
+            <div><dt>Problem</dt><dd><mark>[What problem were you solving, and for whom?]</mark></dd></div>
+            <div><dt>Decision and why</dt><dd><mark>[What did you decide here, and why that over the alternatives?]</mark></dd></div>
+            <div><dt>Result</dt><dd><mark>[What happened? Give a real number or outcome if you have one.]</mark></dd></div>
+          </dl>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="work">
+      <h2>Work</h2>
+      <ul class="work">
+        <!-- ADD NEW WORK HERE: copy one item, paste it at the top, edit it -->
+        <li>
+          <time><mark>[Date]</mark></time>
+          <span><mark>[What was it?]</mark> <!-- Add a link here only if you have one: <a href="YOUR-LINK">Link</a> --></span>
+        </li>
+      </ul>
+    </section>
+
+    <section id="about" class="about">
+      <h2>About</h2>
+      <p>I use algorithms to solve real-world problems. I'm studying Computing Science and Mathematics at the University of Alberta, so I work on both the code and the math behind it. The problem that pulls me in is new day home care. <mark>[What about it? Name the specific problem you want to work on.]</mark></p>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <ul class="contact">
+        <li><span>Email</span><a href="mailto:kristenjia.55@gmail.com">kristenjia.55@gmail.com</a></li>
+        <li><span>LinkedIn</span><mark>[Add your LinkedIn URL]</mark></li>
+        <li><span>GitHub</span><mark>[Add your GitHub username]</mark></li>
+        <!-- When you have them, replace the yellow lines above with:
+             <li><span>LinkedIn</span><a rel="me" href="YOUR-LINKEDIN-URL">LinkedIn</a></li>
+             <li><span>GitHub</span><a rel="me" href="https://github.com/YOUR-USERNAME">github.com/YOUR-USERNAME</a></li> -->
+      </ul>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">Kristen Zhu</div>
+</footer>
+
+</body>
+</html>
